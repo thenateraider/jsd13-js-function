@@ -18,21 +18,42 @@ import { menuItems, orders } from "../fakeData/foodTruckDB.js";
 // Expected output: { id: 2, name: "Double Engine", ... }
 
 function findMenuItemById(items, itemId) {
-  // TODO: your code here
+  return items.find(item => item.id === itemId);
 }
 
+//OR 
+/*
+function findMenuItemById(items, itemId) {
+  return items.find(function(item) {
+    return item.id === itemId;
+  });
+}
+*/
 console.log(findMenuItemById(menuItems, 2));
 // { id: 2, name: 'Double Engine', category: 'burger', price: 250, isAvailable: true, stock: 6 }
+
+
+
+
+
+
 
 // ---------------------------------------------------------------------------
 // Exercise 2
 // Write a function called findMenuItemByName.
 // It receives an items array and an itemName, and returns the matching item object.
 // Expected output: { id: 5, name: "Spicy Gear Burger", ... }
-
 function findMenuItemByName(items, itemName) {
-  // TODO: your code here
+  return items.find(item => item.name === itemName);
 }
+//OR
+/*
+function findMenuItemByName(items, itemName) {
+  return items.find(function(item) {
+    return item.id === itemId;
+  });
+}
+*/
 
 console.log(findMenuItemByName(menuItems, "Spicy Gear Burger"));
 // { id: 5, name: 'Spicy Gear Burger', category: 'burger', price: 220, isAvailable: true, stock: 8 }
@@ -44,7 +65,7 @@ console.log(findMenuItemByName(menuItems, "Spicy Gear Burger"));
 // Expected output: { id: "ORD-002", customerName: "Somchai", status: "pending" }
 
 function findOrderById(orderList, orderId) {
-  // TODO: your code here
+  return orderList.find(order => order.id === orderId)
 }
 
 console.log(findOrderById(orders, "ORD-002"));
@@ -61,7 +82,8 @@ console.log(findOrderById(orders, "ORD-002"));
 //   getMenuItemNameById(menuItems, 99) → "Menu item not found"
 
 function getMenuItemNameById(items, itemId) {
-  // TODO: your code here
+ const menuItemName = items.find(item => item.id === itemId);
+ return menuItemName ? menuItemName.name : `Menu item not found` ;
 }
 
 console.log(getMenuItemNameById(menuItems, 2));
